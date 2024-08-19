@@ -1,5 +1,6 @@
 import 'package:earn_app/AppColor.dart';
 import 'package:earn_app/view/AuthPage/ReferCodePage.dart';
+import 'package:earn_app/view/HomePage.dart';
 import 'package:earn_app/view/Screen/homeScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -79,7 +80,7 @@ class _ReferCodePageState extends State<ReferCodePage>
                       Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: TextField(
-                          style:  const TextStyle(color: Colors.black),
+                          style: const TextStyle(color: Colors.black),
                           cursorColor: Colors.black38,
                           decoration: InputDecoration(
                             filled: true, // Enables the background color
@@ -130,7 +131,7 @@ class _ReferCodePageState extends State<ReferCodePage>
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const HomeScreen()));
+                                      builder: (context) => const HomePage()));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: AppColor.kMain,
@@ -163,7 +164,7 @@ class _ReferCodePageState extends State<ReferCodePage>
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()),
+                                    builder: (context) => const HomePage()),
                               );
                             },
                             style: ElevatedButton.styleFrom(

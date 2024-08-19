@@ -157,9 +157,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               // const SizedBox(height: 20),
               // Display demo content based on the selected index
-              if (_selectedIndex == 0) _RegisterInstall("Register/Install"),
-              if (_selectedIndex == 1) _BankingOffer("Banking Offers"),
-              if (_selectedIndex == 2) _DematOffer("Demat Offers"),
+              if (_selectedIndex == 0) _registerInstall("Register/Install"),
+              if (_selectedIndex == 1) _bankingOffer("Banking Offers"),
+              if (_selectedIndex == 2) _dematOffer("Demat Offers"),
             ],
           ),
         ),
@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         child: Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 10), // Adjust padding for vertical spacing
           decoration: BoxDecoration(
             color: isSelected ? AppColor.kMain : Colors.grey[300],
@@ -201,76 +201,66 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // Method to build demo content based on the selected index
-  Widget _RegisterInstall(String title) {
-    return SizedBox(
-      // padding: const EdgeInsets.all(16),
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height,
-      child: GridView.builder(
-        shrinkWrap: true,
-        padding: const EdgeInsets.all(10),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.75, // Adjust to your preference
-        ),
-        itemCount: registerOfferData.length,
-        itemBuilder: (context, index) {
-          final offer = registerOfferData[index];
-          return OfferCard(
-            offer: offer,
-          );
-        },
+  Widget _registerInstall(String title) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Number of columns
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.75, // Adjust to your preference
       ),
+      itemCount: registerOfferData.length,
+      itemBuilder: (context, index) {
+        final offer = registerOfferData[index];
+        return OfferCard(
+          offer: offer,
+        );
+      },
     );
   }
 
-  Widget _BankingOffer(String title) {
-    return SizedBox(
-      // padding: const EdgeInsets.all(16),
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height,
-      child: GridView.builder(
-        padding: const EdgeInsets.all(10),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.73, // Adjust to your preference
-        ),
-        itemCount: bankingData.length,
-        itemBuilder: (context, index) {
-          final offer = bankingData[index];
-          return OfferCard(
-            offer: offer,
-          );
-        },
+  Widget _bankingOffer(String title) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Number of columns
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.73, // Adjust to your preference
       ),
+      itemCount: bankingData.length,
+      itemBuilder: (context, index) {
+        final offer = bankingData[index];
+        return OfferCard(
+          offer: offer,
+        );
+      },
     );
   }
 
-  Widget _DematOffer(String title) {
-    return SizedBox(
-      // padding: const EdgeInsets.all(16),
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height,
-      child: GridView.builder(
-        padding: const EdgeInsets.all(10),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Number of columns
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.73, // Adjust to your preference
-        ),
-        itemCount: dematOfferData.length,
-        itemBuilder: (context, index) {
-          final offer = dematOfferData[index];
-          return OfferCard(
-            offer: offer,
-          );
-        },
+  Widget _dematOffer(String title) {
+    return GridView.builder(
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(10),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Number of columns
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 0.73, // Adjust to your preference
       ),
+      itemCount: dematOfferData.length,
+      itemBuilder: (context, index) {
+        final offer = dematOfferData[index];
+        return OfferCard(
+          offer: offer,
+        );
+      },
     );
   }
 }

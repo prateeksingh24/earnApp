@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:earn_app/AppColor.dart';
 import 'package:earn_app/view/Screen/ReferScreen.dart';
 import 'package:earn_app/view/Screen/homeScreen.dart';
+import 'package:earn_app/view/Screen/walletScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
           // Action when Cart button is pressed
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
+            MaterialPageRoute(builder: (context) => const WalletScreen()),
           );
         },
         backgroundColor: AppColor.kMain,

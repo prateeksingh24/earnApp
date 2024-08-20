@@ -1,5 +1,6 @@
 import 'package:earn_app/AppColor.dart';
 import 'package:earn_app/Model/OfferModel.dart';
+import 'package:earn_app/view/Pages/OfferDeatailsPage.dart';
 import 'package:flutter/material.dart';
 
 class OfferCard extends StatelessWidget {
@@ -42,7 +43,7 @@ class OfferCard extends StatelessWidget {
           ),
           Center(
             child: Text(
-              "\$${offer.price}",
+              "₹${offer.price}",
               style: const TextStyle(
                 fontSize: 14,
                 color: Colors.green,
@@ -54,7 +55,14 @@ class OfferCard extends StatelessWidget {
           ),
           Center(
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => OfferDetailsPage(
+                              offer: offer,
+                            )));
+              },
               child: Container(
                 padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(

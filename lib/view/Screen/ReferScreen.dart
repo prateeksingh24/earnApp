@@ -13,14 +13,13 @@ class ReferScreen extends StatefulWidget {
 }
 
 class _ReferScreenState extends State<ReferScreen> {
-   final String referralCode = "C7FJKI67";
-
+  final String referralCode = "C7FJKI67";
 
   Future<void> _openWhatsApp() async {
-     final String message = "Check out this amazing app I just found! Use Code = $referralCode";
+    final String message =
+        "Check out this amazing app I just found! Use Code = $referralCode";
     final String url = "https://wa.me/?text=${Uri.encodeComponent(message)}";
-    final Uri _url = Uri.parse(
-        url);
+    final Uri _url = Uri.parse(url);
 
     if (await canLaunchUrl(_url)) {
       await launchUrl(_url);
@@ -95,7 +94,7 @@ class _ReferScreenState extends State<ReferScreen> {
                           onTap: () {
                             // Copy the text to the clipboard
                             Clipboard.setData(
-                               ClipboardData(text: referralCode),
+                              ClipboardData(text: referralCode),
                               // Show a snackbar or toast to inform the user
                               // ScaffoldMessenger.of(context).showSnackBar(
                               //   SnackBar(
@@ -110,7 +109,7 @@ class _ReferScreenState extends State<ReferScreen> {
                               //   ),
                             );
                           },
-                          child:  Text(
+                          child: Text(
                             referralCode,
                             style: const TextStyle(
                               color: Colors.black,
@@ -272,7 +271,7 @@ class _ReferScreenState extends State<ReferScreen> {
                       ),
                     ),
                     const SizedBox(
-                      height: 40,
+                      height: 80,
                     ),
                   ],
                 ),

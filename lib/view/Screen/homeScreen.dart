@@ -3,7 +3,9 @@ import 'package:earn_app/Data/bankingData.dart';
 import 'package:earn_app/Data/dematOffer.dart';
 import 'package:earn_app/Data/registerOfferData.dart';
 import 'package:earn_app/utils/widget/OfferCard.dart';
+import 'package:earn_app/view/Screen/walletScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -85,21 +87,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                 width: 15,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              WalletScreen()));
+                                },
                                 child: Container(
-                                  width: 70,
+                                  padding: EdgeInsets.all(5),
+                                  width: 100,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50),
                                       color: AppColor.kAccent),
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Icon(
-                                        Icons.attach_money,
+                                      HugeIcon(
+                                        icon: HugeIcons.strokeRoundedWallet01,
                                         color: AppColor.kMain,
-                                        size: 35,
+                                        size: 27,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
                                       ),
                                       Text(
-                                        "30",
+                                        "₹30",
                                         style: TextStyle(
                                             color: AppColor.kMain,
                                             fontSize: 20,

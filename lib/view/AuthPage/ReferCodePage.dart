@@ -202,12 +202,13 @@ class _ReferCodePageState extends State<ReferCodePage>
             ),
           ),
           Positioned(
-            top: 70 - keyboardHeight, // Adjust based on keyboard height
+            top: 120 - keyboardHeight, // Adjust based on keyboard height
             left: 20,
+            right: 20,
             child: Image.asset(
               "assets/onboard/onboard2.png",
-              width: 380,
-              height: 380,
+              width: 300,
+              height: 300,
             ),
           ),
         ],

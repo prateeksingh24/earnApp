@@ -1,16 +1,15 @@
 import 'package:earn_app/AppColor.dart';
 import 'package:earn_app/view/AuthPage/ReferCodePage.dart';
-import 'package:earn_app/view/AuthPage/SignUpPage.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage>
+class _SignUpPageState extends State<SignUpPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<Offset> _slideAnimation;
@@ -41,10 +40,12 @@ class _LoginPageState extends State<LoginPage>
   @override
   Widget build(BuildContext context) {
     final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController mailController = TextEditingController();
+    TextEditingController nameController = TextEditingController();
+     TextEditingController passwordController = TextEditingController();
+   TextEditingController mailController = TextEditingController();
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: AppColor.kMain, // Make sure this color is correct
       body: Stack(
         children: [
@@ -56,7 +57,7 @@ class _LoginPageState extends State<LoginPage>
             child: SlideTransition(
               position: _slideAnimation,
               child: Container(
-                height: 350,
+                height: 380,
                 decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage>
                   child: Column(
                     children: [
                       Text(
-                        'Welcome To Kei Rewards',
+                        'Sign Up',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -76,13 +77,50 @@ class _LoginPageState extends State<LoginPage>
                       const SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        'Earn Money By Doing Tasks',
-                        style:
-                            TextStyle(fontSize: 16, color: AppColor.kSecondary),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, right: 10),
+                        child: TextField(
+                          controller: nameController,
+                          style: const TextStyle(color: Colors.black),
+                          cursorColor: Colors.black38,
+                          decoration: InputDecoration(
+                            filled: true, // Enables the background color
+                            fillColor: Colors
+                                .grey[200], // Sets the background color to grey
+                            hintText: 'Enter your name',
+
+                            hintStyle: TextStyle(
+                                color: Colors.grey[
+                                    600]), // Optional: Customize hint text color
+                            prefixIcon: Icon(Icons.person,
+                                color: Colors.grey[600]), // Icon on the left
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8.0), // Optional: Rounded corners
+                              borderSide: BorderSide.none, // Removes the border
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8.0), // Optional: Rounded corners
+                              borderSide: BorderSide(
+                                color: Colors.grey[300]!, // Divider color
+                                width: 1.0, // Divider width
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                  8.0), // Optional: Rounded corners
+                              borderSide: BorderSide(
+                                color: Colors
+                                    .grey[400]!, // Divider color when focused
+                                width: 1.0, // Divider width
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
@@ -193,7 +231,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                           ),
                           child: const Text(
-                            'Login',
+                            'SignUp',
                             style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                         ),
@@ -204,20 +242,7 @@ class _LoginPageState extends State<LoginPage>
               ),
             ),
           ),
-          Positioned(
-            top: 20 - keyboardHeight,
-            right: 0,
-            child: TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignUpPage()));
-              },
-              child: const Text(
-                "Sign Up",
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-              ),
-            ),
-          ),
+
           Positioned(
             top: 120 - keyboardHeight,
             left: 20,

@@ -1,9 +1,11 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:earn_app/AppColor.dart';
+import 'package:earn_app/view/Screen/ProfileScreen.dart';
 import 'package:earn_app/view/Screen/ReferScreen.dart';
 import 'package:earn_app/view/Screen/homeScreen.dart';
 import 'package:earn_app/view/Screen/walletScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,11 +28,16 @@ class _HomePageState extends State<HomePage> {
     const HomeScreen(),
     const MenuScreen(),
     const ReferScreen(),
-    const ProfileScreen(),
+    const Profilescreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: AppColor.kMain, // Set the status bar color
+      statusBarIconBrightness:
+          Brightness.light, // Set the status bar icon color
+    ));
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: _screens[_bottomNavIndex], // Display the selected screen
@@ -76,18 +83,6 @@ class MenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Menu')),
       body: const Center(child: Text('Menu Screen')),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
-      body: const Center(child: Text('Profile Screen')),
     );
   }
 }

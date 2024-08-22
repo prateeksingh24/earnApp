@@ -1,8 +1,8 @@
 import 'package:earn_app/AppColor.dart';
 import 'package:flutter/material.dart';
 
-class TransactionCard extends StatelessWidget {
-  const TransactionCard({super.key});
+class Myreferralscard extends StatelessWidget {
+  const Myreferralscard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,9 @@ class TransactionCard extends StatelessWidget {
               CircleAvatar(
                 backgroundColor: AppColor.kMain,
                 radius: 20,
-                child: const Icon(Icons.done_outline_rounded),
+                child: Image.network(
+                  "https://cdn-icons-png.flaticon.com/512/2059/2059570.png",
+                ),
               ),
               const SizedBox(width: 15),
               const Expanded(
@@ -26,11 +28,7 @@ class TransactionCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Withdrawal of 1000", style: TextStyle(fontSize: 18)),
-                    Text("ID : 238rt32gr8732b7b327",
-                        style: TextStyle(fontSize: 13)),
-                    Text("Date : 2023-3-22 | 1:54:19 PM",
-                        style: TextStyle(fontSize: 13)),
+                    Text("Prateek Singh", style: TextStyle(fontSize: 18)),
                   ],
                 ),
               ),

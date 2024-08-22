@@ -1,9 +1,11 @@
 import 'package:earn_app/AppColor.dart';
+import 'package:earn_app/view/Pages/MyReferrals.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ReferScreen extends StatefulWidget {
   const ReferScreen({super.key});
@@ -14,6 +16,7 @@ class ReferScreen extends StatefulWidget {
 
 class _ReferScreenState extends State<ReferScreen> {
   final String referralCode = "C7FJKI67";
+  bool iscopied = false;
 
   Future<void> _openWhatsApp() async {
     final String message =
@@ -41,10 +44,10 @@ class _ReferScreenState extends State<ReferScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColor.kMain,
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: AppColor.kMain,
+        body: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(height: 20),
@@ -108,6 +111,9 @@ class _ReferScreenState extends State<ReferScreen> {
                               //     // ),
                               //   ),
                             );
+                            setState(() {
+                              iscopied = !iscopied;
+                            });
                           },
                           child: Text(
                             referralCode,
@@ -120,7 +126,7 @@ class _ReferScreenState extends State<ReferScreen> {
                         ),
                       ),
                     ),
-                    const Text("Tap to Copy"),
+                    iscopied ? const Text("Copied") : const Text("Tap to Copy"),
                     const SizedBox(
                       height: 15,
                     ),
@@ -157,7 +163,12 @@ class _ReferScreenState extends State<ReferScreen> {
                           ),
                         ),
                         InkWell(
-                          onTap: _shareContent,
+                          onTap: () async {
+                            const url = "https://www.youtube.com";
+                            await Share.share(
+                                "Check out this amazing app I just found! Use Code = $referralCode \nDownload the app $url ",
+                                subject: "Download");
+                          },
                           child: Container(
                             height: 50,
                             width: 150,
@@ -251,7 +262,12 @@ class _ReferScreenState extends State<ReferScreen> {
                       height: 10,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyReferrals()));
+                      },
                       child: Container(
                         height: 50,
                         width: 250,
